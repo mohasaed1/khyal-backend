@@ -9,3 +9,7 @@ app.include_router(endpoints.router, prefix="/api/v1")
 @app.get("/")
 async def root():
     return {"message": "Welcome to Khyal.ai API 🚀"}
+
+from fastapi.staticfiles import StaticFiles
+
+app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
